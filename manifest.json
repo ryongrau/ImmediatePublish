@@ -1,0 +1,26 @@
+{
+  	
+	"manifest_version": 2,
+	"name": "Publish from Preview",
+	"description": "This script will finish the publish process without all that clickkity clicking",
+	"version": "0.2",
+	"web_accessible_resources": ["jquery-1.10.2.min.map","purl.js"], 
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_Title":"Click here to move this straight through to published"
+	},
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://cms.doe.gov/*"],
+			"js": ["jquery-1.10.2.min.js","purl.js","contentscript.js"]
+		}
+	],
+	"permissions": [
+		"storage",
+		"activeTab"
+	]
+}
